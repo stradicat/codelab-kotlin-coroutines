@@ -35,8 +35,8 @@ class TitleRepositoryTest {
     fun whenRefreshTitleSuccess_insertsRows() = runBlockingTest {
         val titleDao = TitleDaoFake("title")
         val subject = TitleRepository(
-                MainNetworkFake("OK"),
-                titleDao
+            MainNetworkFake("OK"),
+            titleDao
         )
 
         subject.refreshTitle()
@@ -47,8 +47,8 @@ class TitleRepositoryTest {
     fun whenRefreshTitleTimeout_throws() = runBlockingTest {
         val network = MainNetworkCompletableFake()
         val subject = TitleRepository(
-                network,
-                TitleDaoFake("title")
+            network,
+            TitleDaoFake("title")
         )
 
         launch {

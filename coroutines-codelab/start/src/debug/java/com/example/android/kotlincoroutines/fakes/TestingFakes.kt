@@ -98,10 +98,11 @@ class MainNetworkFake(var result: String) : MainNetwork {
 /**
  * Testing Fake for MainNetwork that lets you complete or error all current requests
  */
-class MainNetworkCompletableFake() : MainNetwork {
+class MainNetworkCompletableFake : MainNetwork {
     private var completable = CompletableDeferred<String>()
 
-    override fun fetchNextTitle() = MakeCompilerHappyForStarterCode() // TODO: replace with `completable.await()`
+    override fun fetchNextTitle() =
+        MakeCompilerHappyForStarterCode() // TODO: replace with `completable.await()`
 
     fun sendCompletionToAllCurrentRequests(result: String) {
         completable.complete(result)

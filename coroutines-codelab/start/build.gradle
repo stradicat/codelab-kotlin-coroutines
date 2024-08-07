@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+plugins {
+    id "com.google.devtools.ksp"
+}
 
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 31
@@ -48,12 +48,13 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    namespace 'com.example.android.kotlincoroutines'
 }
 
 dependencies {
     // dependencies are defined in ext arrays in coroutines-codelab/build.gradle
     implementation libraries
-    kapt librariesKapt
+    ksp librariesKsp
     debugImplementation librariesDebug
 
     testImplementation testLibraries
