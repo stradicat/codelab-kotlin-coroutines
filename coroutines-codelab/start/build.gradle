@@ -21,10 +21,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
+    //noinspection GradleDependency
     compileSdkVersion 31
     defaultConfig {
         applicationId "com.example.android.kotlincoroutines"
         minSdkVersion 21
+        //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -35,6 +37,9 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    buildFeatures {
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = 1.8
